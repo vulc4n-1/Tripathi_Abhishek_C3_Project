@@ -77,5 +77,15 @@ class RestaurantTest {
                 ()->restaurant.removeFromMenu("French fries"));
     }
 
+    @Test
+    public void get_order_value_of_selected_menu_items() {
+
+        // Restaurant is already created in setup function with 2 menu item. But adding more item in menu to
+        // test getOrderValue Function
+        restaurant.addToMenu("Sizzling brownie", 319);
+        assertEquals(119,restaurant.getOrderValue("Sweet corn soup"));
+        assertEquals(388,restaurant.getOrderValue("Sweet corn soup", "Vegetable lasagne"));
+        assertEquals(707,restaurant.getOrderValue("Sweet corn soup", "Vegetable lasagne","Sizzling brownie"));
+    }
     //<<<<<<<<<<<<<<<<<<<<<<<MENU>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 }
